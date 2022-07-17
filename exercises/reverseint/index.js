@@ -26,6 +26,4 @@ function reverseInt(n) {
     : Math.abs(reversedInteger);
 }
 
-console.log(reverseInt(-93));
-
 module.exports = reverseInt;
