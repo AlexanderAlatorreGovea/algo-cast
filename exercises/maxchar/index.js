@@ -9,11 +9,12 @@ function maxChar(str) {
   const charMap = {};
 
   for (let char of str) {
-    if (charMap[char]) {
-      charMap[char]++;
-    } else {
-      charMap[char] = 1;
-    }
+    charMap[char] = charMap[char] + 1 || 1;
+    // if (charMap[char]) {
+    //   charMap[char]++;
+    // } else {
+    //   charMap[char] = 1;
+    // }
   }
 
   let max = 0;
