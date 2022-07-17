@@ -12,7 +12,7 @@ function reverse(str) {
     reversedString = char + reversedString;
   }
 
-  return str === reversedString;
+  return reversedString;
 }
 
 module.exports = reverse;
