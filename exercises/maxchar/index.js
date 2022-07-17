@@ -6,27 +6,27 @@
 // maxChar("apple 1231111") === "1"
 
 function maxChar(str) {
-  const obj = {};
+  const charMap = {};
 
   for (let char of str) {
-    if (!obj[char]) {
-      obj[char] = 1;
+    if (charMap[char]) {
+      charMap[char]++;
     } else {
-      obj[char]++;
+      charMap[char] = 1;
     }
   }
 
-  let maxChar = "";
   let max = 0;
+  let maxChar = "";
 
-  for (let char in obj) {
-    if (obj[char] > max) {
-      max = obj[char];
+  for (let char in charMap) {
+    if (charMap[char] > max) {
+      max = charMap[char];
       maxChar = char;
     }
   }
 
-  console.log(maxChar);
+  return maxChar;
 }
 
 console.log(maxChar("abcccccccd"));
