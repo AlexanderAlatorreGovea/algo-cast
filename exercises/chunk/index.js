@@ -12,16 +12,12 @@ function chunk(array, size) {
   const chunked = [];
 
   for (let element of array) {
-    //checks last element in the chunk array
-    const lastElementInChunkArray = chunked[chunked.length - 1];
+    const lastCurrentElement = chunked[chunked.length - 1];
 
-    // check to see if the last element does not exist
-    // or if it's length is equal to the chunk size
-
-    if (!lastElementInChunkArray || lastElementInChunkArray.length === size) {
+    if (!lastCurrentElement || lastCurrentElement.length === size) {
       chunked.push([element]);
     } else {
-      lastElementInChunkArray.push(element);
+      lastCurrentElement.push(element);
     }
   }
 
