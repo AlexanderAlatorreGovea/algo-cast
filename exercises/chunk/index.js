@@ -11,7 +11,7 @@
 function chunk(array, size) {
   const chunked = [];
 
-  for (let element of array) {
+  for (const element of array) {
     const lastCurrentElement = chunked[chunked.length - 1];
 
     if (!lastCurrentElement || lastCurrentElement.length === size) {

@@ -8,17 +8,17 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 function capitalize(str) {
-  const stringOfWords = [];
-  const splitStr = str.split(" ");
+  const capitalized = [];
+  const words = str.split(" ");
 
-  for (let word of splitStr) {
-    let firstLetter = word[0].toUpperCase();
-    let secondHalfOfWord = word.slice(1);
+  for (let i = 0; i < words.length; i++) {
+    const firstLetter = words[i][0].toUpperCase();
+    const restOfWord = words[i].slice(1);
 
-    stringOfWords.push(firstLetter + secondHalfOfWord);
+    capitalized.push(firstLetter + restOfWord);
   }
 
-  return stringOfWords.join(" ");
+  return capitalized.join(" ");
 }
 
 console.log(capitalize("a lazy fox"));

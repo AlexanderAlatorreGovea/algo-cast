@@ -7,12 +7,13 @@
 //   anagrams('rail safety', 'fairy tales') --> True
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
+// str.replace(/[^\w]/g, "")
 
 const convertToMap = (str) => {
-  const stringWithoutEmptyCharacters = str.replace(/[^\w]/g, "").toLowerCase();
+  const normalizedStr = str.replace(/[^\w]/g, "").toLowerCase();
   const obj = {};
 
-  for (let char of stringWithoutEmptyCharacters) {
+  for (const char of normalizedStr) {
     if (obj[char]) {
       obj[char]++;
     } else {
@@ -24,26 +25,22 @@ const convertToMap = (str) => {
 };
 
 function anagrams(stringA, stringB) {
-  const firstCharMap = convertToMap(stringA);
-  const secondCharMap = convertToMap(stringB);
-  let isAnagram = true;
-  const hasSameAmountOfValues =
-    Object.entries(firstCharMap).length !==
-    Object.entries(secondCharMap).length;
+  const stringOne = convertToMap(stringA);
+  const stringTwo = convertToMap(stringB);
 
-  if (hasSameAmountOfValues) {
-    return !isAnagram;
+  if (Object.entries(stringOne).length !== Object.entries(stringTwo).length) {
+    return false;
   }
 
-  for (let char in firstCharMap) {
-    if (firstCharMap[char] === secondCharMap[char]) {
-      return isAnagram;
+  for (const char in stringOne) {
+    if (stringOne[char] === stringTwo[char]) {
+      return true;
     }
   }
 
-  return !isAnagram;
+  return false;
 }
 
-console.log(anagrams("rail safety", "fairy tales"));
+console.log( anagrams('Hi there', 'Bye there'));
 
 module.exports = anagrams;

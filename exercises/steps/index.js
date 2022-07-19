@@ -17,6 +17,16 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+// matrix 
+//think in terms of index
+// 2 d array
 
+function steps(n) {
+  for (let i = 0; i <= n; i++) {
+    
+  }
+
+  return str;
+}
+steps(5);
 module.exports = steps;
