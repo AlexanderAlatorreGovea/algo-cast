@@ -17,16 +17,29 @@
 //       '### '
 //       '####'
 
-// matrix 
+// matrix
 //think in terms of index
 // 2 d array
+// think in terms of row
+// if the column is less than the row or equal then add pound
+
+// [C0 r0] [C0 r1] //column is less than or equal to row
+// [C0 r1] [C1 r1]
 
 function steps(n) {
-  for (let i = 0; i <= n; i++) {
-    
-  }
+  for (let row = 0; row < n; row++) {
+    let stairs = "";
 
-  return str;
+    for (let column = 0; column < n; column++) {
+      if (column <= row) {
+        stairs += "#";
+      } else {
+        stairs += " ";
+      }
+    }
+
+    console.log(stairs);
+  }
 }
 steps(5);
 module.exports = steps;
