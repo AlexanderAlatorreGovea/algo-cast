@@ -29,7 +29,6 @@
 function steps(n) {
   for (let row = 0; row < n; row++) {
     let stairs = "";
-
     for (let column = 0; column < n; column++) {
       if (column <= row) {
         stairs += "#";
@@ -37,9 +36,9 @@ function steps(n) {
         stairs += " ";
       }
     }
-
     console.log(stairs);
   }
 }
 
+steps(3);
 module.exports = steps;
