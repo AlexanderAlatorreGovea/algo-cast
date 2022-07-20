@@ -19,19 +19,22 @@
 // put a pound inside the right and left side of the
 // array of numbers
 
+//we iterate to row 0 and we want to fill everything
+//to the left of the midpoint and check if the midpoint
+
 function pyramid(n) {
-  const midPoint = Math.floor((2 * n - 1) / 2);
-  const rowsToIterate = 2 * n - 1;
+  const midPoint = Math.floor((n * 2 - 1) / 2);
+  const columnsToIterate = n * 2 - 1;
 
   for (let row = 0; row < n; row++) {
     let step = "";
 
-    for (let column = 0; column < rowsToIterate; column++) {
-      const leftSide = midPoint - row <= column;
-      const rightSide = midPoint + row >= column;
+    for (let column = 0; column < columnsToIterate; column++) {
+      const leftSideIsEmpty = midPoint - row <= column;
+      const rightSideIsEmpty = midPoint + row >= column;
 
-      if (leftSide && rightSide) {
-        step += "+";
+      if (leftSideIsEmpty && rightSideIsEmpty) {
+        step += "#";
       } else {
         step += " ";
       }
