@@ -11,19 +11,19 @@
 function chunk(array, size) {
   const chunked = [];
 
-  for (const element of array) {
-    const lastCurrentElement = chunked[chunked.length - 1];
+  for (let i = 0; i < array.length; i++) {
+    const lastElementInTheArray = chunked[chunked.length - 1];
 
-    if (!lastCurrentElement || lastCurrentElement.length === size) {
-      chunked.push([element]);
+    if (!lastElementInTheArray || lastElementInTheArray.length === size) {
+      chunked.push([array[i]]);
     } else {
-      lastCurrentElement.push(element);
+      lastElementInTheArray.push(array[i]);
     }
   }
 
   return chunked;
 }
 
-console.log(chunk([1, 2, 3, 4], 2));
+console.log(chunk([1, 2, 3, 4, 5, 6, 7], 3));
 
 module.exports = chunk;
