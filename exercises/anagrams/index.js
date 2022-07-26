@@ -10,10 +10,13 @@
 // str.replace(/[^\w]/g, "")
 
 const convertToMap = (str) => {
-  const normalizedStr = str.replace(/[^\w]/g, "").toLowerCase();
+  const lowerCasedStringWithReplacedCharacters = str
+    .replace(/[^\w]/g, "")
+    .toLowerCase();
+
   const obj = {};
 
-  for (const char of normalizedStr) {
+  for (let char of lowerCasedStringWithReplacedCharacters) {
     if (obj[char]) {
       obj[char]++;
     } else {
@@ -28,7 +31,7 @@ function anagrams(stringA, stringB) {
   const stringOne = convertToMap(stringA);
   const stringTwo = convertToMap(stringB);
 
-  if (Object.entries(stringOne).length !== Object.entries(stringTwo).length) {
+  if (Object.values(stringOne).length !== Object.values(stringTwo).length) {
     return false;
   }
 
@@ -41,6 +44,38 @@ function anagrams(stringA, stringB) {
   return false;
 }
 
-console.log( anagrams('Hi there', 'Bye there'));
+console.log(anagrams('hello', 'llohe'));
 
 module.exports = anagrams;
+
+// const convertToMap = (str) => {
+//   const normalizedStr = str.replace(/[^\w]/g, "").toLowerCase();
+//   const obj = {};
+
+//   for (const char of normalizedStr) {
+//     if (obj[char]) {
+//       obj[char]++;
+//     } else {
+//       obj[char] = 1;
+//     }
+//   }
+
+//   return obj;
+// };
+
+// function anagrams(stringA, stringB) {
+//   const stringOne = convertToMap(stringA);
+//   const stringTwo = convertToMap(stringB);
+
+//   if (Object.entries(stringOne).length !== Object.entries(stringTwo).length) {
+//     return false;
+//   }
+
+//   for (const char in stringOne) {
+//     if (stringOne[char] === stringTwo[char]) {
+//       return true;
+//     }
+//   }
+
+//   return false;
+// }
