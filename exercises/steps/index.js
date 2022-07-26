@@ -23,8 +23,9 @@
 // think in terms of row
 // if the column is less than the row or equal then add pound
 
-// [C0 r0] [C1 r0] [C2 r0] //column is less than or equal to row
-// [C0 r1] [C1 r1]
+// [C0 r0] [C1 r0] [C2 r0] //column is equal to row insert #
+// [C0 r1] [C1 r1] [C2 r1] // column is more than row in next iteration so don't insert
+
 
 function steps(n) {
   for (let row = 0; row < n; row++) {

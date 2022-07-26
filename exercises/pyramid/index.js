@@ -10,10 +10,10 @@
 //       ' # '
 //       '###'
 //   pyramid(3)
-//         ccccc
-//       r'  #  '
-//       r' ### '
-//       r'#####'
+//         c0c1c2c3c4
+//       r0'  #  ' 3 - 0 = 3
+//       r1'0###4' 3 - 1 = 2
+//       r2'#####'
 
 // calculate the midpoint as the center index
 // put a pound inside the right and left side of the
@@ -23,27 +23,28 @@
 //to the left of the midpoint and check if the midpoint
 
 function pyramid(n) {
+  const columnsToIterateThrough = n * 2 - 1;
   const midPoint = Math.floor((n * 2 - 1) / 2);
-  const columnsToIterate = n * 2 - 1;
 
   for (let row = 0; row < n; row++) {
-    let step = "";
+    let stairs = "";
 
-    for (let column = 0; column < columnsToIterate; column++) {
-      const leftSideIsEmpty = midPoint - row <= column;
-      const rightSideIsEmpty = midPoint + row >= column;
+    for (let column = 0; column < columnsToIterateThrough; column++) {
+      const leftSideOfPyramid = midPoint - row <= column;
+      const rightSideOfPyramid = midPoint + row >= column;
 
-      if (leftSideIsEmpty && rightSideIsEmpty) {
-        step += "#";
+      if (leftSideOfPyramid && rightSideOfPyramid) {
+        stairs += "+";
       } else {
-        step += " ";
+        stairs += " ";
       }
     }
 
-    console.log(step);
+    console.log(stairs);
   }
 }
-
-pyramid(3);
+console.log(pyramid(3));
 
 module.exports = pyramid;
+
+console.log(pyramid(3));
