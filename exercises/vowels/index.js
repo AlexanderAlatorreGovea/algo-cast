@@ -21,6 +21,6 @@ function vowels(str) {
   return letterCount;
 }
 
-console.log(vowels('Hi There!'));
+console.log(vowels("Hi There!"));
 
 module.exports = vowels;

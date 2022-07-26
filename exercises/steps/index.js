@@ -23,24 +23,38 @@
 // think in terms of row
 // if the column is less than the row or equal then add pound
 
-// [C0 r0] [C0 r1] //column is less than or equal to row
+// [C0 r0] [C1 r0] [C2 r0] //column is less than or equal to row
 // [C0 r1] [C1 r1]
 
 function steps(n) {
   for (let row = 0; row < n; row++) {
-    let stairs = "";
-    
+    let stair = "";
+
     for (let column = 0; column < n; column++) {
       if (column <= row) {
-        stairs += "#";
+        stair += "#";
       } else {
-        stairs += " ";
+        stair += " ";
       }
     }
 
-    console.log(stairs);
+    console.log(stair);
   }
 }
 
-steps(3);
+console.log(steps(3));
 module.exports = steps;
+
+// for (let row = 0; row < n; row++) {
+//   let stairs = "";
+
+//   for (let column = 0; column < n; column++) {
+//     if (column <= row) {
+//       stairs += "#";
+//     } else {
+//       stairs += " ";
+//     }
+//   }
+
+//   console.log(stairs);
+// }
