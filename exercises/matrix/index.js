@@ -79,14 +79,13 @@ function matrix(n) {
 
   let counter = 1;
 
-  let startColumn = 0;
-  let endColumn = n - 1;
+  const startColumn = 0;
+  const endColumn = n - 1;
 
-  let startRow = 0;
-  let endRow = n - 1;
+  const startRow = 0;
+  const endRow = n - 1;
 
-  while (startColumn <= endColumn && startRow <= endColumn) {
-    // top row
+  while (startColumn <= endColumn && startRow <= endRow) {
     for (let i = startColumn; i <= endColumn; i++) {
       result[startRow][i] = counter;
       counter++;
@@ -106,13 +105,13 @@ function matrix(n) {
     endRow--;
 
     for (let i = endRow; i >= startRow; i--) {
-      result[endRow][i] = counter;
+      result[i][startColumn] = counter;
       counter++;
     }
-    endColumn++;
+    startColumn++;
   }
 
-  return results;
+  return result;
 }
 
 module.exports = matrix;
