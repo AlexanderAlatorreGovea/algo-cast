@@ -97,11 +97,11 @@ function matrix(n) {
       counter++;
     }
     endColumn--;
-
+ 
     for (let i = endColumn; i >= startColumn; i--) {
       result[endRow][i] = counter;
       counter++;
-    }
+    } 
     endRow--;
 
     for (let i = endRow; i >= startRow; i--) {

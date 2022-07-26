@@ -8,6 +8,23 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+// O(n) or linear complexity
+// it is a for loop that has a fix number going to a fix target so linear
+function fib(n) {
+  const results = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    //previews two records
+    const previewsNumber = results[i - 1]; //1
+    const previewsTwoNumbers = results[i - 2]; //0
+
+    results.push(previewsNumber + previewsTwoNumbers);
+  }
+
+  return results[n];
+}
+
+// recursive Solution
+function fibonacci() {}
 
 module.exports = fib;
