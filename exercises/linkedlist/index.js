@@ -18,6 +18,7 @@ class LinkedList {
     // this.head will be inserted
     // at the beginning of the list
     this.head = new Node(data, this.head);
+    //this.insertAt(data, 0)
   }
 
   size() {
@@ -110,8 +111,6 @@ class LinkedList {
   removeAt(idx) {
     if (!this.head) return this.head;
 
-    let counter = 0;
-
     if (idx === 0) {
       this.head = this.head.next;
       return;
@@ -136,6 +135,19 @@ class LinkedList {
     const node = new Node(data, previous.next);
 
     previous.next = node;
+  }
+
+  forEach(fn) {
+    if (!this.head) {
+      return null;
+    }
+
+    let node = this.head;
+
+    while (node) {
+      fn(node);
+      node = node.next;
+    }
   }
 }
 

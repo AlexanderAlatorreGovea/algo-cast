@@ -139,13 +139,7 @@ class LinkedList {
   }
 
   forEach(fn) {
-    let node = this.head;
-    let counter = 0;
-    while (node) {
-      fn(node, counter);
-      node = node.next;
-      counter++;
-    }
+    for (let data of this) fn(data);
   }
 
   *[Symbol.iterator]() {
