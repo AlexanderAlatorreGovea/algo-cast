@@ -15,7 +15,7 @@ test('Node can insert correctly', () => {
   expect(node.right.right.data).toEqual(17);
 });
 
-test('Contains returns node with the same data', () => {
+xtest('Contains returns node with the same data', () => {
   const node = new Node(10);
   node.insert(5);
   node.insert(15);
