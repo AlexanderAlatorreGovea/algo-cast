@@ -19,7 +19,7 @@ function fib(n) {
     results.push(previousNumber + previewsTwoNumbers);
   }
 
-  return results[n];
+  return results[n - 1];
 }
 console.log(fib(4));
 
