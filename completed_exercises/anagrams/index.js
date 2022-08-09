@@ -13,12 +13,7 @@ function anagrams(stringA, stringB) {
 }
 
 function cleanString(str) {
-  return str
-    .replace(/[^\w]/g, '')
-    .toLowerCase()
-    .split('')
-    .sort()
-    .join('');
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
 }
 
 module.exports = anagrams;
@@ -49,3 +44,36 @@ module.exports = anagrams;
 //
 //   return charMap;
 // }
+
+function charMap(string) {
+  const charMap = {};
+
+  for (let char of string) {
+    charMap[char] = charMap[char] + 1 || 1;
+  }
+
+  return obj;
+}
+
+function generateDocument(characters, document) {
+  // Write your code here.
+
+  const aCharMap = buildCharMap(characters);
+  const bCharMap = buildCharMap(document);
+  const biggest =
+    Object.values(aCharMap).length > Object.values(bCharMap).length
+      ? aCharMap
+      : bCharMap;
+
+  for (let char in biggest) {
+    if (!biggest[char] || biggest[char] < !biggest[char]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(
+  generateDocument("Bste!hetsi ogEAxpelrt x", "AlgoExpert is the Best!")
+);
