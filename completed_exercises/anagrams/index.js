@@ -105,18 +105,104 @@ console.log(firstNonRepeatingCharacter("abcdcaf"));
 
 function twoNumberSum(array, targetSum) {
   const numbers = {};
-  const nums = []
+  const nums = [];
   for (const num of array) {
     const potentialMatch = targetSum - num;
-    
-    if(potentialMatch in numbers) {
-        return [potentialMatch, num]
+
+    if (potentialMatch in numbers) {
+      return [potentialMatch, num];
     } else {
-      numbers[num] = true
+      numbers[num] = true;
     }
   }
 
   return [];
 }
 
-console.log(twoNumberSum([-4, -1, 1, 3, 5, 6, 8, 11], 10));
+function sortedSquaredArray(array) {
+  // Write your code here.
+  const newArray = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const squared = array[i] * array[i];
+    newArray.push(squared);
+  }
+
+  return newArray;
+}
+console.log(sortedSquaredArray([1, 2, 3, 5, 6, 8, 9]));
+
+function tournamentWinner(competitions, results) {
+  let currentBestTeam = "";
+  const currentWinner = { [currentBestTeam]: 0 };
+
+  for (let i = 0; i < competitions.length; i++) {
+    const winner = results[i] === 0 ? competitions[i][1] : competitions[i][0];
+
+    updateCompetitions(winner, currentWinner);
+
+    if (currentWinner[winner] > currentWinner[currentBestTeam]) {
+      currentBestTeam = winner;
+    }
+  }
+
+  return currentBestTeam;
+}
+
+function updateCompetitions(team, scores, points) {
+  if (!team in scores) scores[team] = 0;
+
+  scores[team] += 3;
+}
+
+function nonConstructibleChange(coins) {
+  coins.sort((a, b) => a - b);
+
+  let currentChange = 0;
+
+  for (let coin of coins) {
+    currentChange += coin;
+
+    if (currentChange + 1 < coin) {
+      return currentChange + 1;
+    }
+  }
+
+  return currentChange + 1;
+}
+
+console.log(nonConstructibleChange([1, 1, 2, 3, 5, 7, 22]));
+
+var x = 22;
+console.log(x);
+if (true) {
+  console.log(x);
+  var x = 0;
+  console.log(x);
+}
+
+console.log(!'');
+
+
+class Node {
+  constructor(name) {
+    this.name = name;
+    this.children = [];
+  }
+
+  addChild(name) {
+    this.children.push(new Node(name));
+    return this;
+  }
+
+  depthFirstSearch(array) {
+    // Write your code here.
+	  array.push(this.name)
+		
+      for(const child of this.children) {
+          child.depthFirstSearch(array)
+      }
+      
+	  return array
+	}
+}
