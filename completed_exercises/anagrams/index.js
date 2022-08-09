@@ -45,14 +45,14 @@ module.exports = anagrams;
 //   return charMap;
 // }
 
-function charMap(string) {
+function buildCharMap(string) {
   const charMap = {};
 
   for (let char of string) {
     charMap[char] = charMap[char] + 1 || 1;
   }
 
-  return obj;
+  return charMap;
 }
 
 function generateDocument(characters, document) {
@@ -60,13 +60,9 @@ function generateDocument(characters, document) {
 
   const aCharMap = buildCharMap(characters);
   const bCharMap = buildCharMap(document);
-  const biggest =
-    Object.values(aCharMap).length > Object.values(bCharMap).length
-      ? aCharMap
-      : bCharMap;
 
-  for (let char in biggest) {
-    if (!biggest[char] || biggest[char] < !biggest[char]) {
+  for (let char in bCharMap) {
+    if (!aCharMap[char] || aCharMap[char] < bCharMap[char]) {
       return false;
     }
   }
@@ -77,3 +73,50 @@ function generateDocument(characters, document) {
 console.log(
   generateDocument("Bste!hetsi ogEAxpelrt x", "AlgoExpert is the Best!")
 );
+
+function buildCharMap(str) {
+  const charMap = {};
+
+  for (let char of str.toLowerCase()) {
+    if (!charMap[char]) {
+      charMap[char] = 1;
+    } else {
+      charMap[char]++;
+    }
+  }
+
+  return charMap;
+}
+
+function firstNonRepeatingCharacter(string) {
+  // Write your code here.
+  const strOneCharMap = buildCharMap(string);
+
+  for (let char in strOneCharMap) {
+    if (strOneCharMap[char] === 1) {
+      return string.indexOf(char);
+    }
+  }
+
+  return -1;
+}
+
+console.log(firstNonRepeatingCharacter("abcdcaf"));
+
+function twoNumberSum(array, targetSum) {
+  const numbers = {};
+  const nums = []
+  for (const num of array) {
+    const potentialMatch = targetSum - num;
+    
+    if(potentialMatch in numbers) {
+        return [potentialMatch, num]
+    } else {
+      numbers[num] = true
+    }
+  }
+
+  return [];
+}
+
+console.log(twoNumberSum([-4, -1, 1, 3, 5, 6, 8, 11], 10));
