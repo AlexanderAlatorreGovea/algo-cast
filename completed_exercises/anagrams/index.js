@@ -181,8 +181,7 @@ if (true) {
   console.log(x);
 }
 
-console.log(!'');
-
+console.log(!"");
 
 class Node {
   constructor(name) {
@@ -197,12 +196,28 @@ class Node {
 
   depthFirstSearch(array) {
     // Write your code here.
-	  array.push(this.name)
-		
-      for(const child of this.children) {
-          child.depthFirstSearch(array)
-      }
-      
-	  return array
-	}
+    array.push(this.name);
+
+    for (const child of this.children) {
+      child.depthFirstSearch(array);
+    }
+
+    return array;
+  }
 }
+
+function minimumWaitingTime(queries) {
+  // Write your code here.
+  queries.sort((a, b) => a - b);
+  let sum = 0;
+
+  for (let i = 0; i < queries.length; i++) {
+    let queriesLeft = queries.length - (i + 1);
+
+    sum += queries[i] * queriesLeft;
+  }
+
+  console.log(sum);
+}
+
+minimumWaitingTime([1, 2, 2, 3, 6]);
