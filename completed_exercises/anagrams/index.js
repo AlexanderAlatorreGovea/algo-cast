@@ -221,3 +221,134 @@ function minimumWaitingTime(queries) {
 }
 
 minimumWaitingTime([1, 2, 2, 3, 6]);
+
+// red [1, 3, 4]
+// blue [2, 4, 5]
+
+function classPhotos(redShirtHeights, blueShirtHeights) {
+  // Write your code here.
+  // back taller
+  redShirtHeights.sort((a, b) => a - b);
+  blueShirtHeights.sort((a, b) => a - b);
+
+  const tallestStudents =
+    redShirtHeights[0] > blueShirtHeights[0] ? "RED" : "BLUE";
+
+  for (let i = 0; i < blueShirtHeights.length; i++) {
+    if (tallestStudents === "RED") {
+      if (redShirtHeights[i] >= blueShirtHeights[i]) {
+        return true;
+      }
+    } else if (tallestStudents === "BLUE") {
+      if (redShirtHeights[i] <= blueShirtHeights[i]) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+console.log(classPhotos([5, 8, 1, 3, 4], [6, 9, 2, 4, 5]));
+
+// [1, 4]
+// [5, 3]
+
+// [1, 2, 3, 6, 7]
+
+// [2, 3, 5, 5, 9]
+// [7, 6, 3, 2, 1]
+
+//  7, 6, 5, 5, 9
+
+function getNthFib(n) {
+  // Write your code here.
+  const array = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    const previous = array[i - 1];
+    const previousTwo = array[i - 2];
+
+    array.push(previous + previousTwo);
+  }
+  console.log(array);
+  // 6 - 1 + 5 - 2
+  return array[n - 1];
+}
+
+console.log(getNthFib(6));
+
+function getNthFib(n) {
+  // Write your code here.
+  const array = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    const previous = array[i - 1];
+    const previousTwo = array[i - 2];
+
+    array.push(previous + previousTwo);
+  }
+  console.log(array);
+  return array[n - 1];
+}
+
+console.log(getNthFib(6));
+
+var a = 1;
+let b = 2;
+const c = 3;
+
+const d = {};
+const e = d;
+d.id = 3;
+console.log(e);
+
+const arr = [1, 2, 3];
+
+console.log(arr.map((item) => item * 2));
+
+const name = [];
+
+if (!name.length) {
+  console.log("hello");
+}
+
+const obj = {
+  name: "alex",
+  last: function () {
+    console.log(this.name);
+  },
+};
+
+console.log(obj.last());
+
+const exampleObject = {
+  first: "alex",
+  last: "govea",
+  fullName() {
+    return `${this.first} ${this.last}`;
+  },
+  full: function () {
+    return `${this.first}`;
+  },
+  fullArrow: () => {
+    return `${this.first}`;
+  },
+};
+
+console.log(exampleObject);
+console.log(exampleObject.fullName());
+console.log(exampleObject.full());
+console.log(exampleObject.fullArrow());
+console.log(0 == false);
+console.log(5 == "5");
+console.log(5 + "5");
+console.log(Number(0));
+
+function binarySearch(array, target) {
+  // Write your code here.
+ 
+  return binarySearchHelper(array, target, 0, array.length - 1);
+}
+
+

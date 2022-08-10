@@ -29,4 +29,4 @@ const findLargest = (array) => {
   return largestNumbers;
 };
 
-console.log(findLargest([22,1, 2, 10, 3, 9, 5, 7, 8]));
+console.log(findLargest([,1, 2, 10, 3, 9, 5, 7, 8]));
