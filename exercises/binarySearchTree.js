@@ -26,3 +26,33 @@ function binarySearchHelper(array, target, leftPointer, rightPointer) {
 
   return -1;
 }
+
+console.log(binarySearchTree([0, 1, 21, 33, 45, 45, 61, 71, 72, 73], 33));
+
+function findThreeLargestNumbers(array) {
+  // Write your code here.
+  let [first, second, third] = [-Infinity, -Infinity, -Infinity];
+
+  for (let number of array) {
+    if (number > third) {
+      first = second;
+      second = third;
+      third = number;
+      continue;
+    }
+
+    if (number > second) {
+      first = second;
+      second = number;
+      continue
+    }
+
+    if (number > first) {
+      first = number;
+      continue
+    }
+  }
+
+  return [first, second, third];
+}
+console.log(findThreeLargestNumbers([141, 1, 17, -7, -17, -27, 18, 541, 8, 7]));
