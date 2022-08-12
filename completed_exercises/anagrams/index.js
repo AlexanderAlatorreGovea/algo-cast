@@ -351,4 +351,34 @@ function binarySearch(array, target) {
   return binarySearchHelper(array, target, 0, array.length - 1);
 }
 
+const str = 'abcde'
 
+for (let index = 0; index < str.length; index++) {
+  const element = str[index];
+  console.log(element)
+}
+
+
+// gotchas with typeof
+
+console.log(typeof NaN === 'number')
+console.log(typeof [] === 'object')
+console.log(typeof new Date() === 'object')
+console.log(typeof /regex/ === 'object')
+console.log(typeof null === 'object')
+console.log(typeof Math.sin === 'function')
+console.log(typeof function(){} === 'function')
+
+// to solve the null issue
+console.log(null instanceof Object)
+
+const obj22 = {
+  name: 'alex',
+  last: 'govea'
+}
+const array = [1, 3]
+delete obj22.name
+delete array[0]
+console.log(obj22)
+console.log(array)
+console.log(typeof array[0]) // undefined
