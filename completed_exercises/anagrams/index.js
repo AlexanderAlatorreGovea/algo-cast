@@ -382,3 +382,36 @@ delete array[0]
 console.log(obj22)
 console.log(array)
 console.log(typeof array[0]) // undefined
+
+
+// if(!coins.length) return 1;
+
+// let currentChange = 0;
+// coins = coins.sort((a, b) => a - b);
+
+// for(let i = 0; i < coins.length; i++) {
+//   if(currentChange + 1 < coins[i]) {
+//     return currentChange + 1
+//   }
+    
+//   currentChange += coins[i]
+// }
+
+// return currentChange + 1
+
+
+
+// if(!coins.length) return 1;
+
+// let currentChange = 0;
+// coins = coins.sort((a, b) => a - b);
+
+// for(let i = 0; i < coins.length; i++) {
+//   if(currentChange + 1 < coins[i]) {
+//     return currentChange + 1
+//   }
+    
+//   currentChange += coins[i]
+// }
+
+// return currentChange + 1
