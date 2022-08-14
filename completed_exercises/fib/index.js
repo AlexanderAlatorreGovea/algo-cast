@@ -43,3 +43,8 @@ module.exports = fib;
 //
 //   return result[n];
 // }
+
+const a = {};
+const b = a;
+console.log(Object.is(a, b));
+console.log(!!'')
