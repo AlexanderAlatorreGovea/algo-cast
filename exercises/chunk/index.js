@@ -27,3 +27,19 @@ function chunk(array, size) {
 console.log(chunk([1, 2, 3, 4, 5, 6, 7], 3));
 
 module.exports = chunk;
+
+function chunkeyMonkey(array, size) {
+  const newArray = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const lastElement = newArray[newArray.length - 1];
+
+    if (!array[i] || lastElement.length === size) {
+      newArray.push([array[i]]);
+    } else {
+      lastElement.push(array[i]);
+    }
+  }
+
+  return newArray;
+}
