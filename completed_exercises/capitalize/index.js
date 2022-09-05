@@ -11,7 +11,7 @@ function capitalize(str) {
   let result = str[0].toUpperCase();
 
   for (let i = 1; i < str.length; i++) {
-    if (str[i - 1] === ' ') {
+    if (str[i - 1] === " ") {
       result += str[i].toUpperCase();
     } else {
       result += str[i];
@@ -23,12 +23,16 @@ function capitalize(str) {
 
 module.exports = capitalize;
 
-// function capitalize(str) {
-//   const words = [];
-//
-//   for (let word of str.split(' ')) {
-//     words.push(word[0].toUpperCase() + word.slice(1));
-//   }
-//
-//   return words.join(' ');
-// }
+function capitalizeOne(str) {
+  const arrayOfStrings = str.split(" ");
+  const newString = [];
+
+  for (let word of arrayOfStrings) {
+    const firstLetter = word.toUpperCase().slice(0);
+    const secondLetter = word.slice(1, word.length - 1);
+
+    newString.push(firstLetter + secondLetter);
+  }
+
+  return newString.join(" ").toString();
+}
