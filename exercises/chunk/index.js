@@ -34,7 +34,7 @@ function chunkeyMonkey(array, size) {
   for (let i = 0; i < array.length; i++) {
     const lastElement = newArray[newArray.length - 1];
 
-    if (!array[i] || lastElement.length === size) {
+    if (!lastElement || lastElement.length === size) {
       newArray.push([array[i]]);
     } else {
       lastElement.push(array[i]);

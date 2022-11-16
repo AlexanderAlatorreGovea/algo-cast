@@ -20,7 +20,7 @@ function chunks(array, numToChunk) {
   for (let i = 0; i < array.length; i++) {
     const lastElement = newArray[array.length - 1];
 
-    if (!lastElement || array.length === numToChunk) {
+    if (!lastElement || lastElement.length === numToChunk) {
       newArray.push([array[i]]);
     } else {
       lastElement.push(array[i]);

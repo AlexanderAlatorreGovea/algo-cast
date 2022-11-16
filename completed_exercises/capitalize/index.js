@@ -28,11 +28,15 @@ function capitalizeOne(str) {
   const newString = [];
 
   for (let word of arrayOfStrings) {
-    const firstLetter = word.toUpperCase().slice(0);
-    const secondLetter = word.slice(1, word.length - 1);
+    const firstLetter = word.slice(0, 1).toUpperCase();
+    const secondLetter = word.slice(1, word.length);
 
     newString.push(firstLetter + secondLetter);
   }
 
   return newString.join(" ").toString();
 }
+
+console.log(
+  capitalizeOne('a new dog')
+)

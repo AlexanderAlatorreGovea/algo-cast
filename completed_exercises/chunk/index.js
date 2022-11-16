@@ -22,6 +22,22 @@ function chunk(array, size) {
 
 module.exports = chunk;
 
+function chunk(array, size) {
+  const newArray = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const lastItemInArray = newArray[newArray.length - 1];
+
+    if (!lastItemInArray && lastItemInArray.length === size) {
+      lastItemInArray.push([array[i]]);
+    } else {
+      newArray.push(array[i]);
+    }
+
+    return newArray;
+  }
+}
+
 // function chunk(array, size) {
 //   const chunked = [];
 //
